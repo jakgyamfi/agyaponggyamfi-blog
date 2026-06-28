@@ -1,63 +1,103 @@
-# Astro Starter Kit: Blog
+# agyaponggyamfi.com
 
-```sh
-npm create astro@latest -- --template blog
+The source for my personal site and blog — **Pick my thoughts: the hows and the whys.**
+
+I'm a Cloud Engineer and Cybersecurity professional with extensive experience supporting
+mission-critical applications and infrastructure. I'm building toward senior-level roles in
+cloud security, DevSecOps, cloud infrastructure, MCP server security, and AI/agent integration
+security. This site documents the thinking behind the technical work I do.
+
+🔗 **Live site:** [agyaponggyamfi.com](https://agyaponggyamfi.com)
+
+---
+
+## What this site is
+
+A place where I share practical lessons from real work across cloud infrastructure, security,
+automation, and emerging AI systems. The posts explore the reasoning behind technical decisions:
+why certain risks matter, how problems get identified, and what goes into hardening, mitigating,
+monitoring, and logging modern environments.
+
+For confidentiality and security reasons, I don't publish sensitive implementation details.
+Instead, I focus on the **transferable process** — the reasoning, the architecture choices, the
+lessons learned, and the security practices that help protect cloud infrastructure, CI/CD
+pipelines, MCP servers, and AI agents.
+
+The goal is to document how I think, how I solve problems, and how I keep growing as a cloud and
+security professional.
+
+---
+
+## How this site was built
+
+This site is itself a piece of engineering work, and I've documented the full build — including
+the architectural decisions and the errors I worked through along the way:
+
+📄 **[How I Built This Site](./HOW-I-BUILT-THIS-SITE.md)**
+
+The short version: it's a static site that's deliberately built for reliability rather than for
+showing off infrastructure. I chose managed hosting over self-hosting on purpose. The write-up explains
+that reasoning in full.
+
+---
+
+## Stack
+
+| Layer | Choice |
+|---|---|
+| Site generator | [Astro](https://astro.build) (static, content-first) |
+| Hosting | GitHub Pages (global CDN, managed TLS) |
+| CI/CD | GitHub Actions — push to `main` builds and deploys automatically |
+| DNS | AWS Route 53 |
+| TLS | Let's Encrypt (auto-provisioned and renewed) |
+
+---
+
+## Repository layout
+
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-Features:
-
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and Open Graph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-├── public/
+.
+├── .github/workflows/   # GitHub Actions deploy pipeline
+├── public/              # static assets served as-is (favicon, etc.)
 ├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+│   ├── assets/          # images processed and optimized by Astro
+│   ├── components/      # layout pieces (Header, Footer, ...)
+│   ├── content/blog/    # the blog posts (Markdown / MDX)
+│   ├── layouts/         # page and post layouts
+│   └── pages/           # routes (home, about, blog index)
+├── astro.config.mjs     # Astro config (site URL, integrations)
+└── HOW-I-BUILT-THIS-SITE.md
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+---
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Running locally
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+```bash
+npm install
+npm run dev      # http://localhost:4321
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+| Command | Action |
+|---|---|
+| `npm install` | Install dependencies |
+| `npm run dev` | Start the dev server at `localhost:4321` |
+| `npm run build` | Build the production site to `./dist/` |
+| `npm run preview` | Preview the production build locally |
 
-## 🧞 Commands
+> Requires Node.js ≥ 22.12 (Astro's minimum).
 
-All commands are run from the root of the project, from a terminal:
+---
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Publishing a post
 
-## 👀 Want to learn more?
+1. Add a Markdown/MDX file under `src/content/blog/`.
+2. Commit and push to `main`.
+3. GitHub Actions rebuilds and redeploys automatically — live on the site in a minute or two.
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
 
-## Credit
+## Contact
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+The site links out to my professional profiles. For anything else, reach me through
+[agyaponggyamfi.com](https://agyaponggyamfi.com).
