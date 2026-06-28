@@ -28,6 +28,8 @@ jobs:
         # Installs deps, runs `astro build`, and uploads the
         # build output as the Pages artifact automatically.
         uses: withastro/action@v3
+        with:
+          node-version: 22
 
   deploy:
     needs: build
