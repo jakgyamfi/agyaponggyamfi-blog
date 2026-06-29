@@ -1,36 +1,52 @@
 ---
 import { Image } from 'astro:assets';
-import linkedinIcon from '../assets/linkedin.png';
-import githubIcon from '../assets/github.jpg';
+import linkedin from '../assets/linkedin.webp';
+import github from '../assets/github.webp';
 ---
 
-		<div class="social-links">
-			<a href="https://www.linkedin.com/in/jakgyamfi/" target="_blank">
-				<span class="sr-only">Find me on LinkedIn</span>
-				<Image src={linkedinIcon} alt="LinkedIn" width={105} height={15} />			
-			</a>
+<div class="social-links">
+  <a href="https://www.linkedin.com/in/jakgyamfi/" target="_blank" rel="noopener">
+    <Image src={linkedin} alt="LinkedIn" />
+    <span class="visually-hidden">Find me on LinkedIn</span>
+  </a>
+  <a href="https://agyaponggyamfi.com/resume.pdf" target="_blank" rel="noopener">
+    agyapong:~$view my resume
+  </a>
+  <a href="https://github.com/jakgyamfi" target="_blank" rel="noopener">
+    <Image src={github} alt="GitHub" />
+    <span class="visually-hidden">Find me on GitHub</span>
+  </a>
+</div>
 
-			<a href="/resume.pdf" class="resume-btn">
-				<span class="rb-prompt">agyapong:~$</span>
-				<span class="rb-cmd">view my resume</span>
-				<span class="rb-cursor"></span>
-			</a>
-
-			<a href="https://github.com/jakgyamfi" target="_blank">
-				<span class="sr-only">Find me on Github</span>
-				<Image src={githubIcon} alt="Github" width={45} height={15} />			
-			</a>
-		</div>
 <style>
-	.social-links,
-	.social-links a {
-		display: flex;
-	}
-	@media (max-width: 720px) {
-		.social-links {
-			display: none;
-		}
-	}
+    .social-links {
+        display: flex;
+        align-items: center;
+        gap: 0.75em;
+    }
+    .social-links a {
+        display: inline-flex;
+        align-items: center;
+    }
+    .social-links img {
+        height: 1.2em;      /* ~one line of text */
+        width: auto;        /* preserve aspect ratio — kills distortion */
+        display: block;
+    }
+    .visually-hidden {
+        position: absolute;
+        width: 1px; height: 1px;
+        padding: 0; margin: -1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+        border: 0;
+    }
+    @media (max-width: 720px) {
+            .social-links {
+                display: none;
+            }
+    }
 	.resume-btn{display:inline-flex;align-items:center;gap:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:15px;font-weight:500;text-decoration:none;background:#161b22;border:1px solid rgba(77,139,255,.45);padding:7px 5px;border-radius:999px;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background .22s ease}
 	.resume-btn:hover{background:#1b2330;border-color:#4d8bff;transform:translateY(-2px);box-shadow:0 10px 26px -8px rgba(77,139,255,.55)}
 	.rb-prompt{color:#5b6b7d}
