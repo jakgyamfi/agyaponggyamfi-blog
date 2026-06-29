@@ -1,29 +1,12 @@
 ---
 const today = new Date();
 import { Image } from 'astro:assets';
-import linkedinIcon from '../assets/linkedin.png';
-import githubIcon from '../assets/github.jpg';
+import SocialLinks from './SocialLinks.astro';
 ---
 
 <footer>
 	&copy; {today.getFullYear()} Agyapong K. Gyamfi. All rights reserved.
-	<div class="social-links">
-		<a href="https://www.linkedin.com/in/jakgyamfi/" target="_blank">
-			<span class="sr-only">Find me on LinkedIn</span>
-			<Image src={linkedinIcon} alt="LinkedIn" width={75} height={24} />			
-		</a>
-
-		<a href="/resume.pdf" class="resume-btn">
-			<span class="rb-prompt">agyapong:~$</span>
-			<span class="rb-cmd">view my resume</span>
-			<span class="rb-cursor"></span>
-		</a>
-
-		<a href="hhttps://github.com/jakgyamfi" target="_blank">
-			<span class="sr-only">Find me on Github</span>
-			<Image src={githubIcon} alt="Github" width={75} height={24} />			
-		</a>
-	</div>
+	<SocialLinks />
 </footer>
 <style>
 	footer {

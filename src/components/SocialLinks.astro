@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets';
+import linkedinIcon from '../assets/linkedin.png';
+import githubIcon from '../assets/github.jpg';
+---
+
+		<div class="social-links">
+			<a href="https://www.linkedin.com/in/jakgyamfi/" target="_blank">
+				<span class="sr-only">Find me on LinkedIn</span>
+				<Image src={linkedinIcon} alt="LinkedIn" width={105} height={24} />			
+			</a>
+
+			<a href="/resume.pdf" class="resume-btn">
+				<span class="rb-prompt">agyapong:~$</span>
+				<span class="rb-cmd">view my resume</span>
+				<span class="rb-cursor"></span>
+			</a>
+
+			<a href="hhttps://github.com/jakgyamfi" target="_blank">
+				<span class="sr-only">Find me on Github</span>
+				<Image src={githubIcon} alt="Github" width={45} height={24} />			
+			</a>
+		</div>
+<style>
+	.social-links,
+	.social-links a {
+		display: flex;
+	}
+	@media (max-width: 720px) {
+		.social-links {
+			display: none;
+		}
+	}
+	.resume-btn{display:inline-flex;align-items:center;gap:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:15px;font-weight:500;text-decoration:none;background:#161b22;border:1px solid rgba(77,139,255,.45);padding:7px 10px;border-radius:999px;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background .22s ease}
+	.resume-btn:hover{background:#1b2330;border-color:#4d8bff;transform:translateY(-2px);box-shadow:0 10px 26px -8px rgba(77,139,255,.55)}
+	.rb-prompt{color:#5b6b7d}
+	.rb-cmd{color:#e6edf3}
+	.rb-cursor{width:8px;height:17px;background:#4d8bff;border-radius:1px;display:inline-block;animation:rb-blink 1.05s steps(1) infinite}
+	@keyframes rb-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+</style>
