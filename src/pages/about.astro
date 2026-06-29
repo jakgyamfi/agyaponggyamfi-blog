@@ -2,61 +2,70 @@
 import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
 import Layout from '../layouts/BlogPost.astro';
 ---
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+			<main>
+				<h3>About Me</h3>
+				<p>
+				I am a Cloud Security Engineer focused on securing the infrastructure behind
+				AI agents, MCP servers, CI/CD pipelines, and modern cloud applications.
+				</p>
 
-<main>
-	<h3>About Me</h3>
-	<p>
-      I am a Cloud Security Engineer focused on securing the infrastructure behind
-      AI agents, MCP servers, CI/CD pipelines, and modern cloud applications.
-    </p>
+				<p>
+				My background combines cloud infrastructure, cybersecurity, enterprise technical
+				support, DevOps, databases, networking, and systems troubleshooting. I have worked
+				across environments where reliability, incident response, security, and clear
+				technical communication matter.
+				</p>
 
-    <p>
-      My background combines cloud infrastructure, cybersecurity, enterprise technical
-      support, DevOps, databases, networking, and systems troubleshooting. I have worked
-      across environments where reliability, incident response, security, and clear
-      technical communication matter.
-    </p>
+				<p>
+				This blog is where I document the thinking behind my work: how I identify risks,
+				evaluate architecture choices, harden systems, automate controls, monitor behavior,
+				and learn from real technical problems.
+				</p>
 
-    <p>
-      This blog is where I document the thinking behind my work: how I identify risks,
-      evaluate architecture choices, harden systems, automate controls, monitor behavior,
-      and learn from real technical problems.
-    </p>
+				<p>
+				For confidentiality and security reasons, I do not publish sensitive implementation
+				details from client, employer, or production environments. Instead, I focus on
+				transferable lessons, safe technical patterns, architecture reasoning, and practical
+				security concepts that can help others build stronger systems.
+				</p>
 
-    <p>
-      For confidentiality and security reasons, I do not publish sensitive implementation
-      details from client, employer, or production environments. Instead, I focus on
-      transferable lessons, safe technical patterns, architecture reasoning, and practical
-      security concepts that can help others build stronger systems.
-    </p>
+				<h3>Current focus</h3>
 
-    <h3>Current focus</h3>
+				<p>
+				I am especially interested in the intersection of cloud security, DevSecOps, and
+				AI infrastructure security — including how to secure AI agents, MCP servers,
+				cloud identities, data access, deployment pipelines, and the infrastructure that
+				supports autonomous and AI-assisted systems.
+				</p>
 
-    <p>
-      I am especially interested in the intersection of cloud security, DevSecOps, and
-      AI infrastructure security — including how to secure AI agents, MCP servers,
-      cloud identities, data access, deployment pipelines, and the infrastructure that
-      supports autonomous and AI-assisted systems.
-    </p>
+				<h3>What you will find here</h3>
 
-    <h3>What you will find here</h3>
+				<ul>
+				<li>Cloud security lessons from hands-on infrastructure work</li>
+				<li>DevSecOps notes around CI/CD, automation, and secure deployment</li>
+				<li>Practical writeups on monitoring, logging, troubleshooting, and risk reduction</li>
+				<li>Thoughts on securing AI-connected systems, MCP servers, and agent workflows</li>
+				<li>Career and learning reflections as I continue growing in cloud and security</li>
+				</ul>
 
-    <ul>
-      <li>Cloud security lessons from hands-on infrastructure work</li>
-      <li>DevSecOps notes around CI/CD, automation, and secure deployment</li>
-      <li>Practical writeups on monitoring, logging, troubleshooting, and risk reduction</li>
-      <li>Thoughts on securing AI-connected systems, MCP servers, and agent workflows</li>
-      <li>Career and learning reflections as I continue growing in cloud and security</li>
-    </ul>
+				<p>
+				If you want the formal version of my experience, certifications, and technical
+				background, visit my resume page.
+				</p>
 
-    <p>
-      If you want the formal version of my experience, certifications, and technical
-      background, visit my resume page.
-    </p>
+				<p>
+				<a href="/resume">View My Resume</a>
+				</p>
 
-    <p>
-      <a href="/resume">View My Resume</a>
-    </p>
-
-</main>
+			</main>
+		<Footer />
+	</body>
+</html>
 
