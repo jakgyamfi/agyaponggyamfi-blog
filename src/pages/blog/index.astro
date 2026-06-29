@@ -84,6 +84,12 @@ const posts = (await getCollection('blog')).sort(
 					font-size: 1.563em;
 				}
 			}
+			.brief {
+				margin: 0.4rem 0 0;
+				color: rgb(var(--gray-dark));
+				font-size: 0.95rem;
+				line-height: 1.4;
+			}
 		</style>
 	</head>
 	<body>
@@ -102,6 +108,9 @@ const posts = (await getCollection('blog')).sort(
 									<p class="date">
 										<FormattedDate date={post.data.pubDate} />
 									</p>
+									{post.data.description && (
+										<p class="brief">{post.data.description}</p>
+									)}
 								</a>
 							</li>
 						))
