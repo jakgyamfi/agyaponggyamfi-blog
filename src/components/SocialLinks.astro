@@ -5,17 +5,19 @@ import github from '../assets/github.jpg';
 ---
 
 <div class="social-links">
-  <a href="https://www.linkedin.com/in/jakgyamfi/" target="_blank" rel="noopener">
-    <Image src={linkedin} alt="LinkedIn" />
-    <span class="visually-hidden">Find me on LinkedIn</span>
-  </a>
-  <a href="https://agyaponggyamfi.com/resume.pdf" target="_blank" rel="noopener">
-    agyapong:~$view my resume
-  </a>
-  <a href="https://github.com/jakgyamfi" target="_blank" rel="noopener">
-    <Image src={github} alt="GitHub" />
-    <span class="visually-hidden">Find me on GitHub</span>
-  </a>
+    <a href="https://www.linkedin.com/in/jakgyamfi/" target="_blank" rel="noopener">
+        <Image src={linkedin} alt="LinkedIn" />
+        <span class="visually-hidden">Find me on LinkedIn</span>
+    </a>
+    <a href="/resume.pdf" class="resume-btn">
+		<span class="rb-prompt">agyapong:~$</span>
+		<span class="rb-cmd">view my resume</span>
+		<span class="rb-cursor"></span>
+	</a>
+    <a href="https://github.com/jakgyamfi" target="_blank" rel="noopener">
+        <Image src={github} alt="GitHub" />
+        <span class="visually-hidden">Find me on GitHub</span>
+    </a>
 </div>
 
 <style>
