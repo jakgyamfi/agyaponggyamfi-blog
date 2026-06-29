@@ -1,5 +1,5 @@
 // Place any global data in this file.
 // You can import this data from anywhere in your site by using the `import` keyword.
 
-export const SITE_TITLE = 'Agyapong K. Gyamfi - Securing Cloud Infrastructure, CI/CD pipelines, MCP Servers & AI agents';
-export const SITE_DESCRIPTION = 'Pick my thoughts - the hows and the whys';
+export const SITE_TITLE = 'Agyapong K. Gyamfi - Thoughts, How and Why';
+export const SITE_DESCRIPTION = '	Securing the infrastructure behind AI — cloud platforms, CI/CD pipelines, MCP servers, and autonomous agents.';
