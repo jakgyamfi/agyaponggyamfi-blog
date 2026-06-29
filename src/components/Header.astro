@@ -1,140 +1,162 @@
 ---
-import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
 import SocialLinks from './SocialLinks.astro';
+import { SITE_TITLE } from '../consts';
 ---
 
 <header>
   <nav>
-    <h2>
-      <a href="/">{SITE_TITLE}</a>
-    </h2>
+    <h2><a href="/">{SITE_TITLE}</a></h2>
 
-    <input id="menu-toggle" type="checkbox" />
-
-    <label for="menu-toggle" class="hamburger">
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
       <span></span>
       <span></span>
       <span></span>
-    </label>
+    </button>
 
-    <div class="internal-links">
-      <HeaderLink href="/">Home</HeaderLink>
-      <HeaderLink href="/blog">Blog</HeaderLink>
-      <HeaderLink href="/about">About</HeaderLink>
-      <HeaderLink href="/projects">Projects</HeaderLink>
-      <HeaderLink href="/resume">My Resume</HeaderLink>
-      <HeaderLink href="/contact">Contact</HeaderLink>
+    <div class="nav-menu" id="nav-menu">
+      <div class="internal-links">
+        <HeaderLink href="/">Home</HeaderLink>
+        <HeaderLink href="/blog">Blog</HeaderLink>
+        <HeaderLink href="/about">About</HeaderLink>
+        <HeaderLink href="/projects">Projects</HeaderLink>
+        <HeaderLink href="/resume">My Resume</HeaderLink>
+        <HeaderLink href="/contact">Contact Me</HeaderLink>
+      </div>
+      <SocialLinks />
     </div>
-
-    <SocialLinks />
   </nav>
 </header>
 
 <style>
-header {
+  header {
+    margin: 0;
+    padding: 0 1em;
+    box-shadow: 0 2px 8px rgba(var(--black), 5%);
     position: sticky;
     top: 0;
-    z-index: 999;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  h2 {
+    margin: 0;
+    font-size: 1em;
+  }
+  h2 a,
+  h2 a.active {
+    text-decoration: none;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav a {
+    padding: 1em 0.5em;
+    color: var(--black);
+    border-bottom: 4px solid transparent;
+    text-decoration: none;
+  }
+  nav a.active {
+    text-decoration: none;
+    border-bottom-color: var(--accent);
+  }
+  .nav-menu {
+    display: flex;
+    align-items: center;
+  }
+  .internal-links {
+    display: flex;
+    align-items: center;
+  }
 
-    background: rgba(255,255,255,.9);
-    backdrop-filter: blur(12px);
+  /* Hamburger button — hidden on desktop */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 60;
+  }
+  .hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: var(--black);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .hamburger.open span:nth-child(1) {
+    transform: translateY(9.5px) rotate(45deg);
+  }
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.open span:nth-child(3) {
+    transform: translateY(-9.5px) rotate(-45deg);
+  }
 
-    box-shadow: 0 2px 8px rgba(0,0,0,.05);
-}
-
-nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    max-width:1200px;
-    margin:auto;
-}
-
-.internal-links{
-    display:flex;
-    align-items:center;
-    gap:.4rem;
-}
-
-nav a{
-    padding:1rem .6rem;
-    text-decoration:none;
-}
-
-nav a.active{
-    border-bottom:4px solid var(--accent);
-}
-
-#menu-toggle{
-    display:none;
-}
-
-.hamburger{
-    display:none;
-    cursor:pointer;
-    padding:1rem;
-}
-
-.hamburger span{
-    display:block;
-    width:26px;
-    height:3px;
-    margin:5px 0;
-    background:var(--black);
-    transition:.3s;
-}
-
-
-@media (max-width: 768px){
-
-    .hamburger{
-        display:block;
-        order:3;
+  @media (max-width: 768px) {
+    .hamburger {
+      display: flex;
     }
-
-    .internal-links{
-
-        position:absolute;
-        top:100%;
-        left:0;
-
-        width:100%;
-
-        background:white;
-
-        display:flex;
-        flex-direction:column;
-
-        max-height:0;
-        overflow:hidden;
-
-        transition:max-height .35s ease;
+    .nav-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 4px 8px rgba(var(--black), 5%);
+      /* slide-down: collapsed by default */
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
     }
-
-    .internal-links a{
-        width:100%;
-        text-align:center;
-        padding:1rem;
-        border-bottom:1px solid #eee;
+    .nav-menu.open {
+      max-height: 100vh;
     }
-
-    #menu-toggle:checked ~ .internal-links{
-        max-height:500px;
+    .internal-links {
+      flex-direction: column;
+      align-items: stretch;
     }
-
-    #menu-toggle:checked + .hamburger span:nth-child(1){
-        transform:rotate(45deg) translate(6px,6px);
+    nav a {
+      padding: 0.8em 1em;
+      border-bottom: 1px solid rgba(var(--black), 8%);
     }
-
-    #menu-toggle:checked + .hamburger span:nth-child(2){
-        opacity:0;
+    /* keep active underline working on mobile */
+    nav a.active {
+      border-bottom-color: var(--accent);
     }
-
-    #menu-toggle:checked + .hamburger span:nth-child(3){
-        transform:rotate(-45deg) translate(5px,-5px);
-    }
-
-}
+  }
 </style>
+
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const menu = document.querySelector('.nav-menu');
+
+  hamburger?.addEventListener('click', () => {
+    const isOpen = menu?.classList.toggle('open');
+    hamburger.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // close menu after clicking a link
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('open');
+      hamburger?.classList.remove('open');
+      hamburger?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
