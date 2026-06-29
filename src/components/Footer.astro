@@ -6,7 +6,7 @@ import SocialLinks from './SocialLinks.astro';
 
 <footer>
 	&copy; {today.getFullYear()} Agyapong K. Gyamfi. All rights reserved.
-	<center><SocialLinks /></center>
+	<div class="footer-SocialLinks"><SocialLinks /></div>
 </footer>
 <style>
 	footer {
@@ -15,4 +15,9 @@ import SocialLinks from './SocialLinks.astro';
 		color: rgb(var(--gray));
 		text-align: center;
 	}
+	.footer-SocialLinks {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
 </style>
