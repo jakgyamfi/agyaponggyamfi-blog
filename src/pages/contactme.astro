@@ -1,73 +1,294 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import Footer from '../components/Footer.astro';
+
+// Web3Forms endpoint + public access key.
+// The access key is meant to be public (it only routes to your inbox), so it's
+// safe to ship in client-side markup.
+const FORM_ENDPOINT = 'https://api.web3forms.com/submit';
+const WEB3FORMS_KEY = 'cd1c7ad4-b1b6-48bc-8644-354116f5242f';
 ---
+
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead
+			title="Contact — Agyapong K. Gyamfi"
+			description="Get in touch with Agyapong K. Gyamfi about cloud security, DevSecOps, and infrastructure work."
+		/>
 	</head>
 	<body>
 		<Header />
-			<main>
-				<h3>About Me</h3>
-				<p>
-				I am a Cloud Security Engineer focused on securing the infrastructure behind
-				AI agents, MCP servers, CI/CD pipelines, and modern cloud applications.
+		<main>
+			<section class="contact">
+				<h1><span class="prompt">agyapong:~$</span>contact</h1>
+				<p class="lead">
+					Have a role, a project, or a question about securing cloud and AI
+					infrastructure? Send a message below, or reach me directly.
 				</p>
 
-				<p>
-				My background combines cloud infrastructure, cybersecurity, enterprise technical
-				support, DevOps, databases, networking, and systems troubleshooting. I have worked
-				across environments where reliability, incident response, security, and clear
-				technical communication matter.
-				</p>
+				<!-- Direct contact (assembled by JS to resist harvesting) -->
+				<div class="direct">
+					<div class="direct-item">
+						<span class="label">Email</span>
+						<a id="email-link" class="obf" href="#">
+							<noscript>Enable JavaScript to reveal</noscript>
+						</a>
+					</div>
+					<div class="direct-item">
+						<span class="label">Phone</span>
+						<a id="phone-link" class="obf" href="#">
+							<noscript>Enable JavaScript to reveal</noscript>
+						</a>
+					</div>
+				</div>
 
-				<p>
-				This blog is where I document the thinking behind my work: how I identify risks,
-				evaluate architecture choices, harden systems, automate controls, monitor behavior,
-				and learn from real technical problems.
-				</p>
+				<form id="contact-form" action={FORM_ENDPOINT} method="POST">
+					<!-- Web3Forms required field -->
+					<input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
+					<!-- Optional: sets the email subject line in your inbox -->
+					<input type="hidden" name="subject" value="New message from agyaponggyamfi.com" />
+					<input type="hidden" name="from_name" value="Portfolio Contact Form" />
+					<div class="field">
+						<label for="name">Name</label>
+						<input type="text" id="name" name="name" autocomplete="name" required />
+					</div>
 
-				<p>
-				For confidentiality and security reasons, I do not publish sensitive implementation
-				details from client, employer, or production environments. Instead, I focus on
-				transferable lessons, safe technical patterns, architecture reasoning, and practical
-				security concepts that can help others build stronger systems.
-				</p>
+					<div class="field">
+						<label for="email">Email</label>
+						<input type="email" id="email" name="email" autocomplete="email" required />
+					</div>
 
-				<h3>Current focus</h3>
+					<div class="field">
+						<label for="phone">Phone <span class="opt">(optional)</span></label>
+						<input type="tel" id="phone" name="phone" autocomplete="tel" />
+					</div>
 
-				<p>
-				I am especially interested in the intersection of cloud security, DevSecOps, and
-				AI infrastructure security — including how to secure AI agents, MCP servers,
-				cloud identities, data access, deployment pipelines, and the infrastructure that
-				supports autonomous and AI-assisted systems.
-				</p>
+					<div class="field">
+						<label for="message">Message</label>
+						<textarea id="message" name="message" rows="6" required></textarea>
+					</div>
 
-				<h3>What you will find here</h3>
+					<!-- Honeypot: hidden from humans, bots fill it, Web3Forms drops those -->
+					<input type="checkbox" name="botcheck" class="gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
-				<ul>
-				<li>Cloud security lessons from hands-on infrastructure work</li>
-				<li>DevSecOps notes around CI/CD, automation, and secure deployment</li>
-				<li>Practical writeups on monitoring, logging, troubleshooting, and risk reduction</li>
-				<li>Thoughts on securing AI-connected systems, MCP servers, and agent workflows</li>
-				<li>Career and learning reflections as I continue growing in cloud and security</li>
-				</ul>
+					<button type="submit" class="send-btn">
+						<span class="rb-prompt">agyapong:~$</span>
+						<span class="rb-cmd">send message</span>
+					</button>
 
-				<p>
-				If you want the formal version of my experience, certifications, and technical
-				background, visit my resume page.
-				</p>
-
-				<p>
-				<a href="/resume">View My Resume</a>
-				</p>
-
-			</main>
+					<p id="form-status" class="status" role="status" aria-live="polite"></p>
+				</form>
+			</section>
+		</main>
 		<Footer />
 	</body>
 </html>
 
+<style>
+	main {
+		width: 680px;
+		max-width: calc(100% - 2em);
+		margin: 0 auto;
+	}
+	.contact {
+		margin: 2rem 0 4rem;
+		color: rgb(var(--gray-dark));
+	}
+	h1 {
+		font-family: 'JetBrains Mono', ui-monospace, monospace;
+		font-size: 1.6rem;
+		color: rgb(var(--black));
+		margin: 0 0 0.75rem;
+	}
+	.prompt {
+		color: rgb(var(--accent));
+		margin-right: 0.5ch;
+		user-select: none;
+	}
+	.lead {
+		margin: 0 0 2rem;
+		line-height: 1.6;
+	}
+
+	/* ---- Direct contact ---- */
+	.direct {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.5rem 2.5rem;
+		padding: 1.1rem 1.25rem;
+		margin-bottom: 2.5rem;
+		border: 1px solid rgba(var(--gray), 0.4);
+		border-radius: 12px;
+		background: rgba(var(--gray-light), 0.4);
+	}
+	.direct-item {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+	.label {
+		font-size: 0.72rem;
+		text-transform: uppercase;
+		letter-spacing: 0.07em;
+		color: rgb(var(--gray));
+	}
+	.obf {
+		font-family: 'JetBrains Mono', ui-monospace, monospace;
+		font-size: 0.95rem;
+		color: rgb(var(--accent));
+		text-decoration: none;
+		border-bottom: 1px solid transparent;
+		transition: border-color 0.2s ease;
+	}
+	.obf:hover {
+		border-bottom-color: rgb(var(--accent));
+	}
+
+	/* ---- Form ---- */
+	.field {
+		margin-bottom: 1.25rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+	label {
+		font-size: 0.9rem;
+		font-weight: 600;
+		color: rgb(var(--black));
+	}
+	.opt {
+		font-weight: 400;
+		color: rgb(var(--gray));
+	}
+	input,
+	textarea {
+		font: inherit;
+		padding: 0.6em 0.75em;
+		border: 1px solid rgba(var(--gray), 0.5);
+		border-radius: 8px;
+		background: #fff;
+		color: rgb(var(--gray-dark));
+		transition: border-color 0.2s ease, box-shadow 0.2s ease;
+	}
+	input:focus,
+	textarea:focus {
+		outline: none;
+		border-color: rgb(var(--accent));
+		box-shadow: 0 0 0 3px rgba(var(--accent), 0.15);
+	}
+	textarea {
+		resize: vertical;
+	}
+
+	/* Honeypot — visually & semantically removed for humans */
+	.gotcha {
+		position: absolute;
+		left: -9999px;
+		width: 1px;
+		height: 1px;
+		opacity: 0;
+	}
+
+	/* ---- Send button (echoes site terminal motif) ---- */
+	.send-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5em;
+		font-family: 'JetBrains Mono', ui-monospace, monospace;
+		font-size: 0.9rem;
+		font-weight: 500;
+		cursor: pointer;
+		background: #161b22;
+		border: 1px solid rgba(77, 139, 255, 0.45);
+		padding: 0.6em 1.1em;
+		border-radius: 999px;
+		transition: transform 0.22s ease, box-shadow 0.22s ease,
+			border-color 0.22s ease, background 0.22s ease;
+	}
+	.send-btn:hover {
+		background: #1b2330;
+		border-color: #4d8bff;
+		transform: translateY(-2px);
+		box-shadow: 0 10px 26px -8px rgba(77, 139, 255, 0.55);
+	}
+	.send-btn .rb-prompt {
+		color: #5b6b7d;
+	}
+	.send-btn .rb-cmd {
+		color: #e6edf3;
+	}
+
+	.status {
+		margin-top: 1rem;
+		font-size: 0.9rem;
+		min-height: 1.2em;
+	}
+	.status.ok {
+		color: #1a7f37;
+	}
+	.status.err {
+		color: #cf222e;
+	}
+
+	@media (max-width: 720px) {
+		h1 {
+			font-size: 1.35rem;
+		}
+	}
+</style>
+
+<script>
+	// --- Reassemble email & phone from parts so raw HTML holds no harvestable string ---
+	// Parts are split and joined at runtime; scrapers reading static HTML see nothing usable.
+	const emailUser = ['gyamfi', 'agyapong'].join('.');
+	const emailDomain = ['yahoo', 'com'].join('.');
+	const email = emailUser + String.fromCharCode(64) + emailDomain;
+
+	const phoneParts = ['785', '317', '3828'];
+	const phoneDisplay = phoneParts.join('-');
+	const phoneDial = '+1' + phoneParts.join('');
+
+	const emailLink = document.getElementById('email-link');
+	if (emailLink) {
+		emailLink.textContent = email;
+		emailLink.setAttribute('href', 'mailto:' + email);
+	}
+
+	const phoneLink = document.getElementById('phone-link');
+	if (phoneLink) {
+		phoneLink.textContent = phoneDisplay;
+		phoneLink.setAttribute('href', 'tel:' + phoneDial);
+	}
+
+	// --- Async form submit so the page doesn't navigate away ---
+	const form = document.getElementById('contact-form');
+	const status = document.getElementById('form-status');
+
+	form?.addEventListener('submit', async (e) => {
+		e.preventDefault();
+		if (!status) return;
+		status.className = 'status';
+		status.textContent = 'Sending…';
+
+		try {
+			const res = await fetch(form.action, {
+				method: 'POST',
+				body: new FormData(form),
+				headers: { Accept: 'application/json' },
+			});
+			if (res.ok) {
+				form.reset();
+				status.classList.add('ok');
+				status.textContent = 'Thanks — your message is on its way.';
+			} else {
+				status.classList.add('err');
+				status.textContent = 'Something went wrong. Please email me directly instead.';
+			}
+		} catch {
+			status.classList.add('err');
+			status.textContent = 'Network error. Please email me directly instead.';
+		}
+	});
+</script>
