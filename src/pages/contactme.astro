@@ -38,7 +38,7 @@ const WEB3FORMS_KEY = 'cd1c7ad4-b1b6-48bc-8644-354116f5242f';
 					</div>
 					<div class="direct-item">
 						<span class="label">Phone or Text</span>
-						+1-<a id="phone-link" class="obf" href="#">
+						<a id="phone-link" class="obf" href="#">
 							<noscript>Enable JavaScript to reveal</noscript>
 						</a>
 					</div>
@@ -247,7 +247,7 @@ const WEB3FORMS_KEY = 'cd1c7ad4-b1b6-48bc-8644-354116f5242f';
 	const email = emailUser + String.fromCharCode(64) + emailDomain;
 
 	const phoneParts = ['785', '317', '3828'];
-	const phoneDisplay = phoneParts.join('-');
+	const phoneDisplay = '+1-' + phoneParts.join('-');
 	const phoneDial = '+1' + phoneParts.join('');
 
 	const emailLink = document.getElementById('email-link');
