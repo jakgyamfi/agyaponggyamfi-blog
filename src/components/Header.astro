@@ -75,16 +75,17 @@ import { SITE_TITLE } from '../consts';
     justify-self: end;
   }
 
-  nav a {
-    padding: 1em 0.5em;
-    color: var(--black);
-    border-bottom: 4px solid transparent;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-  nav a.active {
-    border-bottom-color: var(--accent);
-  }
+nav a {
+	padding: 1em 0.5em;
+	color: rgb(var(--black));
+	border-bottom: 4px solid transparent;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+nav a.active {
+  border-bottom-color: rgb(var(--accent));
+}
 
   /* Hamburger — hidden on desktop */
   .hamburger {
@@ -101,13 +102,13 @@ import { SITE_TITLE } from '../consts';
     z-index: 60;
   }
   .hamburger span {
-    display: block;
-    height: 3px;
-    width: 100%;
-    background: var(--black);
-    border-radius: 2px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: rgb(var(--black));
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
   .hamburger.open span:nth-child(1) {
     transform: translateY(9.5px) rotate(45deg);
   }
@@ -161,8 +162,8 @@ import { SITE_TITLE } from '../consts';
       border-bottom: 1px solid rgba(var(--black), 8%);
     }
     nav a.active {
-      border-bottom-color: var(--accent);
-    }
+		border-bottom-color: rgb(var(--accent));
+		}
   }
 </style>
 
