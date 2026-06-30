@@ -1,0 +1,521 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const PAGE_TITLE = 'Resume  Agyapong K. Gyamfi';
+const PAGE_DESCRIPTION =
+	'Cloud Security / DevSecOps professional with 10+ years securing AWS and Azure environments  IAM, TLS/certificate management, IaC, and incident response.';
+
+// --- Resume data -----------------------------------------------------------
+const contact = {
+	name: 'Agyapong Gyamfi',
+	email: 'gyamfi.agyapong@yahoo.com',
+	phone: '785-317-3828',
+	location: 'Cary, NC',
+	linkedin: 'https://linkedin.com/in/jakgyamfi/',
+	github: 'https://github.com/jakgyamfi',
+	resumePdf: '/resume.pdf',
+};
+
+const summary =
+	'Cloud Security / DevSecOps professional with 10+ years of experience supporting mission-critical production systems and standardizing cloud resources with a security-first mindset. Hands-on experience securing and operating AWS and Azure-connected environments, including IAM/identity troubleshooting, secure configuration, TLS/certificate management, API and network traffic analysis, and incident response/RCA. Strong communicator experienced in regulated healthcare environments, reducing MTTR through structured triage, clear documentation, and cross-team coordination. Experienced with IaC (Terraform/CloudFormation) and automation to reduce configuration drift and improve reliability. Familiar with penetration testing and security framework concepts (NIST CSF, MITRE ATT&CK) to structure investigation and response.';
+
+const experience = [
+	{
+		role: 'Cloud Engineer',
+		company: 'G&A Nexus Inc',
+		dates: '02/2025  12/2025',
+		location: 'Raleigh, NC',
+		bullets: [
+			'Engineered and supported AWS cloud architectures for data/ETL and cloud applications, translating business needs into secure, scalable solutions.',
+			'Standardized deployment processes using Terraform and CloudFormation, promoting consistent configuration and repeatable infrastructure delivery.',
+			'Architected access patterns employing AWS Identity Center, IAM roles, and trust policies, reinforcing least-privilege principles and controlled role assumption.',
+			'Facilitated governance and compliance visibility using AWS Config and multi-account management with AWS Organizations / Control Tower.',
+			'Deployed and secured core infrastructure components such as VPC, EC2, and RDS, aligning networking and identity controls to meet workload needs.',
+			'Drove cost optimization by decommissioning redeployable EC2 instances, purchasing savings plans, leveraging autoscaling, and right-sizing instances.',
+			'Automated delivery workflows using Git, CodePipeline, and CodeBuild, enhancing DevOps reliability and decreasing manual configuration drift.',
+			'Constructed data platform components (Kinesis Firehose, S3, Glue, Athena, Parquet) with an emphasis on secure data handling and operational maintainability.',
+			'Used Postman and Burp Suite to inspect and troubleshoot API calls, validating request/response behavior and identifying misconfigurations.',
+			'Executed authorized security testing using Burp Suite and OWASP ZAP, validated remediation, and documented findings.',
+			'Monitored project tickets through Jira integrated with ClickUp, improving transparency and execution consistency.',
+		],
+	},
+	{
+		role: 'Technical Support Engineer',
+		company: 'Perigen Inc',
+		dates: '04/2023  02/2025',
+		location: 'Cary, NC',
+		bullets: [
+			'Supported Windows/Linux systems and cloud-connected environments (including Azure components) for FDA-regulated healthcare applications, ensuring HIPAA-aligned security and compliance.',
+			'Executed deep troubleshooting across applications, databases (Microsoft SQL Server), servers, and networks, employing structured triage and root cause analysis (RCA) to restore services promptly.',
+			'Implemented security-focused enhancements including SSL/TLS certificate binding, server hardening, and firewall rule updates to fortify production posture.',
+			'Conducted packet captures and traffic analysis using Wireshark to resolve connectivity, latency, and protocol-level issues affecting workflows.',
+			'Employed Postman for API call inspection and troubleshooting; analyzed authentication and request/response behavior to isolate failures.',
+			'Performed analysis on SQL, Python, and HL7-related concerns to troubleshoot data flows and integration issues, collaborating with cross-functional teams to rectify defects.',
+			'Developed scripts and automation for troubleshooting and alerting, enhancing proactive monitoring and reducing repeat incidents.',
+			'Documented resolutions and created operational knowledge artifacts to promote team consistency and expedite speed-to-resolution.',
+		],
+	},
+	{
+		role: 'Technical Support  Lead',
+		company: 'Infosys Limited',
+		dates: '12/2021  04/2023',
+		location: 'Raleigh, NC',
+		bullets: [
+			'Directed support operations for multiple enterprise applications, orchestrating incident response and mentoring team members on structured troubleshooting techniques.',
+			'Constructed automation scripts to analyze logs, streamline batch/process troubleshooting, and enhance operational reliability.',
+			'Diagnosed server/performance bottlenecks and improved incident response execution through disciplined triage and effective escalation management.',
+			'Supported hybrid environments and assisted in troubleshooting cloud networking/VPC-related issues connecting cloud and on-premises resources.',
+			'Delivered application support across mainframe and distributed systems; used ServiceNow for incident tracking and RCA documentation.',
+			'Resolved stuck processes and application issues involving COBOL/DB2/SQL through scripting-based analysis.',
+		],
+	},
+	{
+		role: 'Production Process Technician',
+		company: 'Procter & Gamble',
+		dates: '12/2019  12/2021',
+		location: 'Brown Summit, NC',
+		bullets: [
+			'Oversaw SCADA/PLC-related operational configurations and resolved system faults that impacted manufacturing workflows.',
+			'Ensured compliance-driven execution within regulated environments (FDA/cGMP context).',
+		],
+	},
+	{
+		role: 'Program Manager � Web Developer � System Administrator',
+		company: 'Sem Fronteiras',
+		dates: '11/2010  12/2019',
+		location: 'Uxbridge, UK',
+		bullets: [
+			'Developed and maintained IT infrastructure including LAN networks, Linux/Windows servers, workstations, patching, and application deployments.',
+			'Created web applications and databases (HTML/CSS/JavaScript/PHP/SQL) and supported operational reporting and stakeholder coordination.',
+			'Managed logistics and reporting for healthcare outreach programs, fostering strong execution discipline and operational ownership.',
+		],
+	},
+];
+
+const education = [
+	{
+		degree: 'Master of Science - Cybersecurity',
+		school: 'North Carolina A&T State University',
+		dates: '01/2024  Present',
+		location: 'Greensboro, NC',
+	},
+	{
+		degree: 'Bachelor of Science  Information Technology',
+		school: 'North Carolina A&T State University',
+		dates: '08/2021  12/2023',
+		location: 'Greensboro, NC',
+	},
+];
+
+// Grouped skills  recruiter-scannable instead of one undifferentiated wall.
+const skillGroups = [
+	{
+		label: 'Cloud & Security Architecture',
+		items: [
+			'AWS', 'Azure', 'IAM / Identity', 'Secure configuration',
+			'TLS / Certificate management', 'VPC / VNet patterns', 'Segmentation',
+			'Least-privilege policies', 'SSO / OAuth2', 'Azure AD / Entra',
+		],
+	},
+	{
+		label: 'DevSecOps & IaC',
+		items: [
+			'Terraform', 'CloudFormation', 'Git', 'CodePipeline', 'CodeBuild',
+			'CI/CD automation', 'Config drift reduction', 'AWS Config',
+			'Organizations / Control Tower',
+		],
+	},
+	{
+		label: 'AWS Services',
+		items: [
+			'Identity Center', 'EC2', 'RDS', 'S3', 'VPC', 'Kinesis Firehose',
+			'Glue', 'Athena', 'CloudFormation', 'AWS Config',
+		],
+	},
+	{
+		label: 'Security & Testing Tools',
+		items: [
+			'Burp Suite', 'OWASP ZAP', 'Postman', 'Wireshark', 'SSLyze',
+			'Penetration testing concepts', 'NIST CSF', 'MITRE ATT&CK',
+		],
+	},
+	{
+		label: 'Incident Response & Ops',
+		items: [
+			'Structured triage', 'Root cause analysis', 'Bridge calls',
+			'Escalation management', 'Playbooks & runbooks', 'Splunk',
+			'Observability / Logging',
+		],
+	},
+	{
+		label: 'Scripting & Data',
+		items: [
+			'Python', 'Java', 'SQL', 'JavaScript', 'Shell scripting',
+			'HL7 concepts', 'Microsoft SQL Server',
+		],
+	},
+	{
+		label: 'ITSM & Collaboration',
+		items: ['Jira', 'ServiceNow', 'Dynamics 365', 'ClickUp', 'KB authoring'],
+	},
+];
+
+const languages = ['English (Native)'];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={PAGE_TITLE} description={PAGE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article class="resume">
+				<!-- Header / identity -->
+				<header class="resume-head">
+					<div class="identity">
+						<h1>{contact.name}</h1>
+						<p class="tagline">Cloud Security � DevSecOps � AI Infrastructure</p>
+					</div>
+					<ul class="contact">
+						<li><a href={`mailto:${contact.email}`}>{contact.email}</a></li>
+						<li><a href={`tel:${contact.phone.replace(/[^0-9]/g, '')}`}>{contact.phone}</a></li>
+						<li>{contact.location}</li>
+						<li><a href={contact.linkedin} target="_blank" rel="noopener">LinkedIn</a></li>
+						<li><a href={contact.github} target="_blank" rel="noopener">GitHub</a></li>
+					</ul>
+					<a class="pdf-btn" href={contact.resumePdf} target="_blank" rel="noopener">
+						<span class="rb-prompt">agyapong:~$</span>
+						<span class="rb-cmd">download&nbsp;PDF</span>
+					</a>
+				</header>
+
+				<!-- Summary -->
+				<section class="block">
+					<h2><span class="prompt">agyapong:~$</span>summary</h2>
+					<p class="summary">{summary}</p>
+				</section>
+
+				<!-- Experience -->
+				<section class="block">
+					<h2><span class="prompt">agyapong:~$</span>experience</h2>
+					{
+						experience.map((job) => (
+							<div class="job">
+								<div class="job-head">
+									<h3>
+										{job.role} <span class="at">�</span>{' '}
+										<span class="company">{job.company}</span>
+									</h3>
+									<p class="meta">
+										<span>{job.dates}</span>
+										<span class="dot">"</span>
+										<span>{job.location}</span>
+									</p>
+								</div>
+								<ul class="bullets">
+									{job.bullets.map((b) => (
+										<li>{b}</li>
+									))}
+								</ul>
+							</div>
+						))
+					}
+				</section>
+
+				<!-- Skills -->
+				<section class="block">
+					<h2><span class="prompt">agyapong:~$</span>skills</h2>
+					<div class="skill-grid">
+						{
+							skillGroups.map((group) => (
+								<div class="skill-group">
+									<h4>{group.label}</h4>
+									<ul class="tags">
+										{group.items.map((item) => (
+											<li>{item}</li>
+										))}
+									</ul>
+								</div>
+							))
+						}
+					</div>
+				</section>
+
+				<!-- Education -->
+				<section class="block">
+					<h2><span class="prompt">agyapong:~$</span>education</h2>
+					{
+						education.map((ed) => (
+							<div class="edu">
+								<h3>{ed.degree}</h3>
+								<p class="meta">
+									<span class="company">{ed.school}</span>
+									<span class="dot">"</span>
+									<span>{ed.dates}</span>
+									<span class="dot">"</span>
+									<span>{ed.location}</span>
+								</p>
+							</div>
+						))
+					}
+				</section>
+
+				<!-- Languages -->
+				<section class="block">
+					<h2><span class="prompt">agyapong:~$</span>languages</h2>
+					<ul class="tags inline">
+						{languages.map((l) => <li>{l}</li>)}
+					</ul>
+				</section>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	main {
+		width: 820px;
+		max-width: calc(100% - 2em);
+		margin: 0 auto;
+	}
+
+	.resume {
+		margin: 2rem 0 4rem;
+		color: rgb(var(--gray-dark));
+	}
+
+	/* ---- Identity header ---- */
+	.resume-head {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		grid-template-areas:
+			'identity pdf'
+			'contact  contact';
+		gap: 0.75rem 1rem;
+		align-items: start;
+		padding-bottom: 1.25rem;
+		border-bottom: 1px solid rgba(var(--gray), 0.35);
+	}
+	.identity {
+		grid-area: identity;
+	}
+	.identity h1 {
+		margin: 0;
+		font-size: 2.2rem;
+		line-height: 1.1;
+		color: rgb(var(--black));
+	}
+	.tagline {
+		margin: 0.35rem 0 0;
+		color: rgb(var(--accent));
+		font-weight: 600;
+		letter-spacing: 0.01em;
+	}
+	.contact {
+		grid-area: contact;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem 1.1rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		font-size: 0.9rem;
+	}
+	.contact a {
+		color: rgb(var(--gray-dark));
+		text-decoration: none;
+		border-bottom: 1px solid transparent;
+		transition: border-color 0.2s ease, color 0.2s ease;
+	}
+	.contact a:hover {
+		color: rgb(var(--accent));
+		border-bottom-color: rgb(var(--accent));
+	}
+
+	/* ---- PDF button (echoes the site's terminal motif) ---- */
+	.pdf-btn {
+		grid-area: pdf;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5em;
+		font-family: 'JetBrains Mono', ui-monospace, monospace;
+		font-size: 0.8rem;
+		font-weight: 500;
+		line-height: 1.2;
+		text-decoration: none;
+		background: #161b22;
+		border: 1px solid rgba(77, 139, 255, 0.45);
+		padding: 0.45em 0.85em;
+		border-radius: 999px;
+		white-space: nowrap;
+		transition: transform 0.22s ease, box-shadow 0.22s ease,
+			border-color 0.22s ease, background 0.22s ease;
+	}
+	.pdf-btn:hover {
+		background: #1b2330;
+		border-color: #4d8bff;
+		transform: translateY(-2px);
+		box-shadow: 0 10px 26px -8px rgba(77, 139, 255, 0.55);
+	}
+	.pdf-btn .rb-prompt {
+		color: #5b6b7d;
+	}
+	.pdf-btn .rb-cmd {
+		color: #e6edf3;
+	}
+
+	/* ---- Section blocks ---- */
+	.block {
+		margin-top: 2.25rem;
+	}
+	.block h2 {
+		font-family: 'JetBrains Mono', ui-monospace, monospace;
+		font-size: 1.05rem;
+		font-weight: 600;
+		color: rgb(var(--black));
+		margin: 0 0 1rem;
+		padding-bottom: 0.4rem;
+		border-bottom: 2px solid rgba(var(--gray), 0.3);
+	}
+	.prompt {
+		color: rgb(var(--accent));
+		margin-right: 0.5ch;
+		user-select: none;
+	}
+
+	.summary {
+		margin: 0;
+		line-height: 1.6;
+	}
+
+	/* ---- Experience ---- */
+	.job {
+		margin-bottom: 1.75rem;
+	}
+	.job:last-child {
+		margin-bottom: 0;
+	}
+	.job-head h3 {
+		margin: 0;
+		font-size: 1.1rem;
+		color: rgb(var(--black));
+	}
+	.job-head .at {
+		color: rgb(var(--gray));
+		font-weight: 400;
+	}
+	.company {
+		color: rgb(var(--accent));
+	}
+	.meta {
+		margin: 0.2rem 0 0.6rem;
+		font-size: 0.85rem;
+		color: rgb(var(--gray));
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+		align-items: center;
+	}
+	.meta .dot {
+		opacity: 0.6;
+	}
+	.bullets {
+		margin: 0;
+		padding-left: 1.1rem;
+		display: grid;
+		gap: 0.4rem;
+	}
+	.bullets li {
+		line-height: 1.5;
+	}
+
+	/* ---- Skills ---- */
+	.skill-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.25rem 2rem;
+	}
+	.skill-group h4 {
+		margin: 0 0 0.5rem;
+		font-size: 0.8rem;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: rgb(var(--gray));
+	}
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.tags li {
+		font-size: 0.82rem;
+		padding: 0.2em 0.65em;
+		border: 1px solid rgba(var(--gray), 0.4);
+		border-radius: 999px;
+		color: rgb(var(--gray-dark));
+		background: rgba(var(--gray-light), 0.4);
+	}
+	.tags.inline {
+		margin-top: 0;
+	}
+
+	/* ---- Education ---- */
+	.edu {
+		margin-bottom: 1rem;
+	}
+	.edu h3 {
+		margin: 0;
+		font-size: 1.02rem;
+		color: rgb(var(--black));
+	}
+
+	/* ---- Responsive ---- */
+	@media (max-width: 720px) {
+		.resume-head {
+			grid-template-columns: 1fr;
+			grid-template-areas:
+				'identity'
+				'pdf'
+				'contact';
+		}
+		.pdf-btn {
+			justify-self: start;
+		}
+		.skill-grid {
+			grid-template-columns: 1fr;
+		}
+		.identity h1 {
+			font-size: 1.8rem;
+		}
+	}
+
+	/* ---- Print: clean ATS / paper output ---- */
+	@media print {
+		.pdf-btn {
+			display: none;
+		}
+		main {
+			width: 100%;
+			max-width: 100%;
+		}
+		.block h2,
+		.prompt,
+		.company,
+		.tagline {
+			color: #000 !important;
+		}
+		.tags li {
+			border-color: #999;
+			background: transparent;
+		}
+	}
+</style>
