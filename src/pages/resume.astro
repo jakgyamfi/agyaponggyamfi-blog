@@ -4,9 +4,9 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
-const PAGE_TITLE = 'Resume  Agyapong K. Gyamfi';
+const PAGE_TITLE = 'Resume - Agyapong K. Gyamfi';
 const PAGE_DESCRIPTION =
-	'Cloud Security / DevSecOps professional with 10+ years securing AWS and Azure environments  IAM, TLS/certificate management, IaC, and incident response.';
+	'Cloud Security / DevSecOps professional with 10+ years securing AWS and Azure environments - IAM, TLS/certificate management, IaC, and incident response.';
 
 // --- Resume data -----------------------------------------------------------
 const contact = {
@@ -16,7 +16,6 @@ const contact = {
 	location: 'Cary, NC',
 	linkedin: 'https://linkedin.com/in/jakgyamfi/',
 	github: 'https://github.com/jakgyamfi',
-	resumePdf: '/resume.pdf',
 };
 
 const summary =
@@ -26,7 +25,7 @@ const experience = [
 	{
 		role: 'Cloud Engineer',
 		company: 'G&A Nexus Inc',
-		dates: '02/2025  12/2025',
+		dates: '02/2025 - 12/2025',
 		location: 'Raleigh, NC',
 		bullets: [
 			'Engineered and supported AWS cloud architectures for data/ETL and cloud applications, translating business needs into secure, scalable solutions.',
@@ -45,7 +44,7 @@ const experience = [
 	{
 		role: 'Technical Support Engineer',
 		company: 'Perigen Inc',
-		dates: '04/2023  02/2025',
+		dates: '04/2023 - 02/2025',
 		location: 'Cary, NC',
 		bullets: [
 			'Supported Windows/Linux systems and cloud-connected environments (including Azure components) for FDA-regulated healthcare applications, ensuring HIPAA-aligned security and compliance.',
@@ -59,9 +58,9 @@ const experience = [
 		],
 	},
 	{
-		role: 'Technical Support  Lead',
+		role: 'Technical Support - Lead',
 		company: 'Infosys Limited',
-		dates: '12/2021  04/2023',
+		dates: '12/2021 - 04/2023',
 		location: 'Raleigh, NC',
 		bullets: [
 			'Directed support operations for multiple enterprise applications, orchestrating incident response and mentoring team members on structured troubleshooting techniques.',
@@ -75,7 +74,7 @@ const experience = [
 	{
 		role: 'Production Process Technician',
 		company: 'Procter & Gamble',
-		dates: '12/2019  12/2021',
+		dates: '12/2019 - 12/2021',
 		location: 'Brown Summit, NC',
 		bullets: [
 			'Oversaw SCADA/PLC-related operational configurations and resolved system faults that impacted manufacturing workflows.',
@@ -85,7 +84,7 @@ const experience = [
 	{
 		role: 'Program Manager � Web Developer � System Administrator',
 		company: 'Sem Fronteiras',
-		dates: '11/2010  12/2019',
+		dates: '11/2010 - 12/2019',
 		location: 'Uxbridge, UK',
 		bullets: [
 			'Developed and maintained IT infrastructure including LAN networks, Linux/Windows servers, workstations, patching, and application deployments.',
@@ -99,18 +98,18 @@ const education = [
 	{
 		degree: 'Master of Science - Cybersecurity',
 		school: 'North Carolina A&T State University',
-		dates: '01/2024  Present',
+		dates: '01/2024 - 05/2026',
 		location: 'Greensboro, NC',
 	},
 	{
-		degree: 'Bachelor of Science  Information Technology',
+		degree: 'Bachelor of Science - Information Technology',
 		school: 'North Carolina A&T State University',
-		dates: '08/2021  12/2023',
+		dates: '08/2021 - 12/2023',
 		location: 'Greensboro, NC',
 	},
 ];
 
-// Grouped skills  recruiter-scannable instead of one undifferentiated wall.
+// Grouped skills - recruiter-scannable instead of one undifferentiated wall.
 const skillGroups = [
 	{
 		label: 'Cloud & Security Architecture',
@@ -179,7 +178,7 @@ const languages = ['English (Native)'];
 				<header class="resume-head">
 					<div class="identity">
 						<h1>{contact.name}</h1>
-						<p class="tagline">Cloud Security � DevSecOps � AI Infrastructure</p>
+						<p class="tagline">Cloud Security | DevSecOps | AI Infrastructure</p>
 					</div>
 					<ul class="contact">
 						<li><a href={`mailto:${contact.email}`}>{contact.email}</a></li>
@@ -189,26 +188,26 @@ const languages = ['English (Native)'];
 						<li><a href={contact.github} target="_blank" rel="noopener">GitHub</a></li>
 					</ul>
 					<a class="pdf-btn" href={contact.resumePdf} target="_blank" rel="noopener">
-						<span class="rb-prompt">agyapong:~$</span>
+						<span class="rb-prompt">gyamfi:~$</span>
 						<span class="rb-cmd">download&nbsp;PDF</span>
 					</a>
 				</header>
 
 				<!-- Summary -->
 				<section class="block">
-					<h2><span class="prompt">agyapong:~$</span>summary</h2>
+					<h2>Summary</h2>
 					<p class="summary">{summary}</p>
 				</section>
 
 				<!-- Experience -->
 				<section class="block">
-					<h2><span class="prompt">agyapong:~$</span>experience</h2>
+					<h2>Experience</h2>
 					{
 						experience.map((job) => (
 							<div class="job">
 								<div class="job-head">
 									<h3>
-										{job.role} <span class="at">�</span>{' '}
+										{job.role} <span class="at">@</span>{' '}
 										<span class="company">{job.company}</span>
 									</h3>
 									<p class="meta">
@@ -229,7 +228,7 @@ const languages = ['English (Native)'];
 
 				<!-- Skills -->
 				<section class="block">
-					<h2><span class="prompt">agyapong:~$</span>skills</h2>
+					<h2>Skills</h2>
 					<div class="skill-grid">
 						{
 							skillGroups.map((group) => (
@@ -248,7 +247,7 @@ const languages = ['English (Native)'];
 
 				<!-- Education -->
 				<section class="block">
-					<h2><span class="prompt">agyapong:~$</span>education</h2>
+					<h2>Education</h2>
 					{
 						education.map((ed) => (
 							<div class="edu">
@@ -267,7 +266,7 @@ const languages = ['English (Native)'];
 
 				<!-- Languages -->
 				<section class="block">
-					<h2><span class="prompt">agyapong:~$</span>languages</h2>
+					<h2>Languages</h2>
 					<ul class="tags inline">
 						{languages.map((l) => <li>{l}</li>)}
 					</ul>
