@@ -6,7 +6,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 const PAGE_TITLE = 'Resume - Agyapong K. Gyamfi';
 const PAGE_DESCRIPTION =
-	'Cloud Security / DevSecOps professional with 10+ years securing AWS and Azure environments - IAM, TLS/certificate management, IaC, and incident response.';
+	'Cloud Security Engineer securing AI agents, MCP servers, and the cloud infrastructure they depend on.';
 
 // --- Resume data -----------------------------------------------------------
 const contact = {
@@ -19,7 +19,7 @@ const contact = {
 };
 
 const summary =
-	'Cloud Security / DevSecOps professional with 10+ years of experience supporting mission-critical production systems and standardizing cloud resources with a security-first mindset. Hands-on experience securing and operating AWS and Azure-connected environments, including IAM/identity troubleshooting, secure configuration, TLS/certificate management, API and network traffic analysis, and incident response/RCA. Strong communicator experienced in regulated healthcare environments, reducing MTTR through structured triage, clear documentation, and cross-team coordination. Experienced with IaC (Terraform/CloudFormation) and automation to reduce configuration drift and improve reliability. Familiar with penetration testing and security framework concepts (NIST CSF, MITRE ATT&CK) to structure investigation and response.';
+	'Cloud Security Engine, currently my work sits at the intersection of cloud engineering, DevSecOps, technical support, and cybersecurity: designing secure infrastructure, troubleshooting production issues, hardening access paths, and creating runbooks. Securing cloud infrastructure, identity federation, DevSecOps pipelines, multi-cloud technical support — resolving IAM and role-assumption failures, TLS/certificate binding, and firewall, API-security issues, and incident triage. I build and hardens Terraform-based secure baselines, least-privilege IAM, keyless CI/CD (Federation OIDC, IAM Roles Anywhere, TPM-backed certificates), and centralized detection-and-response, GitHub Actions deployments, logging, and detection-focused security controls. Holds an MS in Cybersecurity, AWS Solutions Architect and AWS Security – Specialty certificates. Extending this foundation into AI/LLM security — securing AI agents, MCP servers, and the cloud infrastructure they run on.';
 
 const experience = [
 	{
@@ -39,6 +39,20 @@ const experience = [
 			'Used Postman and Burp Suite to inspect and troubleshoot API calls, validating request/response behavior and identifying misconfigurations.',
 			'Executed authorized security testing using Burp Suite and OWASP ZAP, validated remediation, and documented findings.',
 			'Monitored project tickets through Jira integrated with ClickUp, improving transparency and execution consistency.',
+		],
+	},
+	{
+		role: 'Cloud Technical Support Engineer — Cloud Volumes ONTAP',
+		company: 'NetApp Inc',
+		dates: '04/2026 - Present',
+		location: 'Morrisville, NC',
+		bullets: [
+			'Multi-Cloud Engineering & Triage: Supports enterprise customers running Cloud Volumes ONTAP across AWS, Azure, and GCP, resolving deployment, IAM, networking, API, licensing, and outage issues for hybrid and cloud-native storage workloads.',
+			'Identity & API: Diagnoses identity, role-assumption, and API authentication failures across cloud providers; uses Postman and curl to reproduce REST calls, validate request signing, and isolate misconfigurations.',
+			'Security Hardening: Guides SSL/TLS certificate binding for VMs, Docker/Podman containers, and cloud volumes; reviews CVE advisories to determine mitigation; resolves firewall-rule and permission issues blocking API calls.',
+			'Incident Response & Observability: Analyzes logs across CloudWatch, Kibana, and Grafana; verifies networking, IAM, and certificates to drive structured root-cause analysis; pulls HAR files and packet captures to resolve API and firewall issues.',
+			'Resilience & Recovery: Restores customer workloads after ransomware events, region outages, and replication failures using SnapMirror, cross-region replication, and immutable backups.',
+			'Knowledge Engineering: Authors solution and how-to articles adopted as reference material across the support organization.',
 		],
 	},
 	{
