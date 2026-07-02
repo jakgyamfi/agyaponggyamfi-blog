@@ -1,6 +1,6 @@
 ---
-title: 'Zero Standing Credentials: How I Eliminated Long-Lived Secrets from a Client's Entire Deployment Pipeline'
-description: 'Workload identity federation, OIDC, and the case against the access key.'
+title: "Zero Standing Credentials: How I Eliminated Long-Lived Secrets from a Client's Entire Deployment Pipeline"
+description: "Workload identity federation, OIDC, and the case against the access key."
 pubDate: 'Jul 01 2026'
 ---
 

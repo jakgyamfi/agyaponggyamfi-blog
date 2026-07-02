@@ -1,6 +1,6 @@
 ---
-title: 'Maximum Security at Minimum Cost: The Engineering Decisions That Keep a Secure Pipeline Cheap'
-description: 'Security and frugality are usually framed as a tradeoff. Designed well, they align.'
+title: "Maximum Security at Minimum Cost: The Engineering Decisions That Keep a Secure Pipeline Cheap"
+description: "Security and frugality are usually framed as a tradeoff. Designed well, they align."
 pubDate: 'Jul 04 2026'
 ---
 

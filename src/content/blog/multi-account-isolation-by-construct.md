@@ -1,6 +1,6 @@
 ---
-title: 'Isolation by Construction: Designing a Multi-Account AWS Architecture Where Boundaries Can't Be Bypassed'
-description: 'Why I stopped relying on naming conventions and started enforcing isolation structurally.'
+title: "Isolation by Construction: Designing a Multi-Account AWS Architecture Where Boundaries Can't Be Bypassed"
+description: "Why I stopped relying on naming conventions and started enforcing isolation structurally."
 pubDate: 'Jun 30 2026'
 ---
 # Isolation by Construction: Designing a Multi-Account AWS Architecture Where Boundaries Can't Be Bypassed

@@ -1,6 +1,6 @@
 ---
-title: 'Cost of Security -  Building a Private Certificate Authority for Workstation-to-Cloud Authentication'
-description: 'Save dollars without compromising Security - TPM-bound X.509 certificates, AWS IAM Roles Anywhere, and identity that lives in hardware.'
+title: "Cost of Security -  Building a Private Certificate Authority for Workstation-to-Cloud Authentication"
+description: "Save dollars without compromising Security - TPM-bound X.509 certificates, AWS IAM Roles Anywhere, and identity that lives in hardware."
 pubDate: 'Jul 02 2026'
 ---
 
