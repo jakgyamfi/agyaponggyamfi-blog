@@ -25,20 +25,18 @@ const experience = [
 	{
 		role: 'Cloud Engineer',
 		company: 'G&A Nexus Inc',
-		dates: '02/2025 - 12/2025',
+		dates: '02/2025 - 04/2026',
 		location: 'Raleigh, NC',
 		bullets: [
-			'Engineered and supported AWS cloud architectures for data/ETL and cloud applications, translating business needs into secure, scalable solutions.',
-			'Standardized deployment processes using Terraform and CloudFormation, promoting consistent configuration and repeatable infrastructure delivery.',
-			'Architected access patterns employing AWS Identity Center, IAM roles, and trust policies, reinforcing least-privilege principles and controlled role assumption.',
-			'Facilitated governance and compliance visibility using AWS Config and multi-account management with AWS Organizations / Control Tower.',
-			'Deployed and secured core infrastructure components such as VPC, EC2, and RDS, aligning networking and identity controls to meet workload needs.',
-			'Drove cost optimization by decommissioning redeployable EC2 instances, purchasing savings plans, leveraging autoscaling, and right-sizing instances.',
-			'Automated delivery workflows using Git, CodePipeline, and CodeBuild, enhancing DevOps reliability and decreasing manual configuration drift.',
-			'Constructed data platform components (Kinesis Firehose, S3, Glue, Athena, Parquet) with an emphasis on secure data handling and operational maintainability.',
-			'Used Postman and Burp Suite to inspect and troubleshoot API calls, validating request/response behavior and identifying misconfigurations.',
-			'Executed authorized security testing using Burp Suite and OWASP ZAP, validated remediation, and documented findings.',
-			'Monitored project tickets through Jira integrated with ClickUp, improving transparency and execution consistency.',
+			'Keyless CI/CD Federation: Eliminated long-lived AWS keys by implementing OIDC federation, IAM Roles Anywhere, and TPM-backed certificates; hardened GitHub Actions environments, secrets handling, and pre-deployment scanning.',
+			'Multi-Account Architecture: Designed multi-account AWS structure with Organizations, an OIDC federation landing account, and controlled role chaining — spanning landing zones, networking, IAM strategy, disaster recovery, cost, and security architecture.',
+			'Identity & Access: Implemented least-privilege access with AWS Identity Center, IAM roles, permission boundaries, and trust policies; enforced controlled cross-account role assumption and removed long-lived IAM users where feasible.',
+			'Infrastructure as Code: Built VPC, EC2, RDS, and IAM requirements into Terraform and CloudFormation modules promoted as the team standard for repeatable, drift-free delivery.',
+			'Cost Optimization: Drove cost optimization by decommissioning redeployable EC2 instances, purchasing savings plans, leveraging autoscaling, and right-sizing instances.',
+			'Governance & Compliance: Established multi-account governance with AWS Organizations, Control Tower concepts, and AWS Config conformance packs for centralized policy enforcement and continuous configuration monitoring.',
+			'Network & Workload Security: Hardened VPC, EC2, and RDS workloads with subnetting, VPC Flow Logs, encrypted EBS/RDS volumes, and KMS-managed keys aligned to workload sensitivity.',
+			'Policy-as-Code Pipelines: Engineered CI/CD with Git, CodePipeline, and CodeBuild; integrated infrastructure scanning to catch misconfigurations before deployment and reduce drift.',
+			'Security Testing: Performed authorized API and application security testing with Burp Suite, OWASP ZAP, and Postman; documented findings, severity, and remediation guidance.',
 		],
 	},
 	{
@@ -47,8 +45,8 @@ const experience = [
 		dates: '04/2026 - Present',
 		location: 'Morrisville, NC',
 		bullets: [
-			'Multi-Cloud Engineering & Triage: Supports enterprise customers running Cloud Volumes ONTAP across AWS, Azure, and GCP, resolving deployment, IAM, networking, API, licensing, and outage issues for hybrid and cloud-native storage workloads.',
-			'Identity & API: Diagnoses identity, role-assumption, and API authentication failures across cloud providers; uses Postman and curl to reproduce REST calls, validate request signing, and isolate misconfigurations.',
+			'Multi-Cloud Engineering & Triage: Supports enterprise customers running Cloud Volumes ONTAP across AWS, Azure, and GCP, resolving deployment, IAM, networking, API, licensing, Backup, Replication, Tiering, and outage issues for hybrid and cloud-native storage workloads.',
+			'Identity & API: Diagnoses identity, role-assumption, and API authentication failures across cloud providers; uses Postman and curl to reproduce REST calls, validate request signing, isolate misconfigurations, and push workflow that failed from the front end via the API. Analyzing HAR files and packet captures for structured root-cause analysis.',
 			'Security Hardening: Guides SSL/TLS certificate binding for VMs, Docker/Podman containers, and cloud volumes; reviews CVE advisories to determine mitigation; resolves firewall-rule and permission issues blocking API calls.',
 			'Incident Response & Observability: Analyzes logs across CloudWatch, Kibana, and Grafana; verifies networking, IAM, and certificates to drive structured root-cause analysis; pulls HAR files and packet captures to resolve API and firewall issues.',
 			'Resilience & Recovery: Restores customer workloads after ransomware events, region outages, and replication failures using SnapMirror, cross-region replication, and immutable backups.',
@@ -61,12 +59,12 @@ const experience = [
 		dates: '04/2023 - 02/2025',
 		location: 'Cary, NC',
 		bullets: [
-			'Supported Windows/Linux systems and cloud-connected environments (including Azure components) for FDA-regulated healthcare applications, ensuring HIPAA-aligned security and compliance.',
-			'Executed deep troubleshooting across applications, databases (Microsoft SQL Server), servers, and networks, employing structured triage and root cause analysis (RCA) to restore services promptly.',
-			'Implemented security-focused enhancements including SSL/TLS certificate binding, server hardening, and firewall rule updates to fortify production posture.',
-			'Conducted packet captures and traffic analysis using Wireshark to resolve connectivity, latency, and protocol-level issues affecting workflows.',
+			'Regulated Operations: Supported Windows/Linux and Azure-connected production for FDA-regulated healthcare applications under HIPAA-aligned change control and audit requirements.',
+			'Incident Response: Performed structured triage and root-cause analysis across applications, Microsoft SQL Server, server, and network layers to restore service and document remediation.',
+			'Hardening & Network Analysis: Implemented SSL/TLS certificate binding, server hardening, and firewall-rule reviews; executed Wireshark packet captures to resolve connectivity, latency, and HL7 integration issues.',
+			'Network Troubleshooting: Conducted packet captures and traffic analysis using Wireshark to resolve connectivity, latency, and protocol-level issues affecting workflows.',
 			'Employed Postman for API call inspection and troubleshooting; analyzed authentication and request/response behavior to isolate failures.',
-			'Performed analysis on SQL, Python, and HL7-related concerns to troubleshoot data flows and integration issues, collaborating with cross-functional teams to rectify defects.',
+			'Automation: Wrote Python and SQL for log analysis, alerting, and proactive monitoring, reducing repeat incidents and improving mean-time-to-detect.',
 			'Developed scripts and automation for troubleshooting and alerting, enhancing proactive monitoring and reducing repeat incidents.',
 			'Documented resolutions and created operational knowledge artifacts to promote team consistency and expedite speed-to-resolution.',
 		],
@@ -77,12 +75,11 @@ const experience = [
 		dates: '12/2021 - 04/2023',
 		location: 'Raleigh, NC',
 		bullets: [
-			'Directed support operations for multiple enterprise applications, orchestrating incident response and mentoring team members on structured troubleshooting techniques.',
-			'Constructed automation scripts to analyze logs, streamline batch/process troubleshooting, and enhance operational reliability.',
+			'Leadership: Led incident response and triage for multiple enterprise applications, mentored engineers in structured troubleshooting, and owned escalation management end-to-end.',
+			'Hybrid Networking & Automation: Diagnosed cloud / on-prem hybrid networking issues across VPC connectivity and routing; built automation for log analysis and batch monitoring; standardized RCA templates in ServiceNow.',
 			'Diagnosed server/performance bottlenecks and improved incident response execution through disciplined triage and effective escalation management.',
-			'Supported hybrid environments and assisted in troubleshooting cloud networking/VPC-related issues connecting cloud and on-premises resources.',
 			'Delivered application support across mainframe and distributed systems; used ServiceNow for incident tracking and RCA documentation.',
-			'Resolved stuck processes and application issues involving COBOL/DB2/SQL through scripting-based analysis.',
+			'Resolved stuck processes and application issues involving COBOL/DB2/SQL.',
 		],
 	},
 	{
@@ -118,8 +115,29 @@ const education = [
 	{
 		degree: 'Bachelor of Science - Information Technology',
 		school: 'North Carolina A&T State University',
-		dates: '08/2021 - 12/2023',
+		dates: '08/2021 - 12/2024',
 		location: 'Greensboro, NC',
+	},
+];
+
+const certificates = [
+	{
+		certificate: 'AWS Certified Security – Specialty',
+	},
+	{
+		certificate: 'AWS Certified Solutions Architect – Associate',
+	},
+	{
+		certificate: 'DevOps on AWS (Professional Certificate)',
+	},
+	{
+		certificate: 'In Progress:  Certified Cloud Security Professional (CCSP – ISC2)',
+	},
+	{
+		certificate: 'Infosys Certified Mainframe JCL Programmer',
+	},
+	{
+		certificate: 'Infosys Certified COBOL-DB2 Programmer',
 	},
 ];
 
@@ -175,8 +193,6 @@ const skillGroups = [
 		items: ['Jira', 'ServiceNow', 'Dynamics 365', 'ClickUp', 'KB authoring'],
 	},
 ];
-
-const languages = ['English (Native)'];
 ---
 
 <!doctype html>
@@ -262,6 +278,18 @@ const languages = ['English (Native)'];
 									<span class="dot">"</span>
 									<span>{ed.location}</span>
 								</p>
+							</div>
+						))
+					}
+				</section>
+
+				<!-- Certificates -->
+				<section class="block">
+					<h2>Certifications</h2>
+					{
+						certificates.map((cert) => (
+							<div class="edu">
+								<h3>{cert.certificate}</h3>
 							</div>
 						))
 					}
