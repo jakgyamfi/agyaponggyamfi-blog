@@ -4,8 +4,6 @@ description: "A deep dive into a subtle IAM trust-policy bug, and the debugging 
 pubDate: 'Jul 05 2026'
 ---
 
-# The Authorization Failure That Every Policy Said Was Impossible
-
 **Subtitle:** A deep dive into a subtle IAM trust-policy bug, and the debugging discipline that found it.
 
 ---

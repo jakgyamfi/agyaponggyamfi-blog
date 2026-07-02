@@ -4,8 +4,6 @@ description: "Security and frugality are usually framed as a tradeoff. Designed 
 pubDate: 'Jul 04 2026'
 ---
 
-# Maximum Security at Minimum Cost: The Engineering Decisions That Keep a Secure Pipeline Cheap
-
 **Subtitle:** Security and frugality are usually framed as a tradeoff. Designed well, they align.
 
 ---

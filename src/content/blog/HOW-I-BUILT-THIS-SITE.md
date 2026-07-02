@@ -1,10 +1,8 @@
 ---
-title: 'How I Built This Site'
+title: 'How I Built and Shipped This Site: Astro + GitHub Pages + Route 53'
 description: 'The architecture and deployment of agyaponggyamfi.com — Astro, GitHub Pages, and Route 53 — including the decisions and the errors along the way.'
 pubDate: 'Jun 28 2026'
 ---
-
-# How I Built and Shipped This Site: Astro + GitHub Pages + Route 53
 
 Creating a runbook is one important thing i do and find need for on every problem I resolve. IT is a knowledge captrue and helps speed up the process to be done by another developer another time. 
 

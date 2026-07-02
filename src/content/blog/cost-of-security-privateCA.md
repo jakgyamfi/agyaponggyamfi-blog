@@ -4,8 +4,6 @@ description: "Save dollars without compromising Security - TPM-bound X.509 certi
 pubDate: 'Jul 02 2026'
 ---
 
-# Building a Private Certificate Authority for Workstation-to-Cloud Authentication
-
 **Subtitle:** TPM-bound X.509 certificates, AWS IAM Roles Anywhere, and identity that lives in hardware.
 
 ---

@@ -4,8 +4,6 @@ description: "Workload identity federation, OIDC, and the case against the acces
 pubDate: 'Jul 01 2026'
 ---
 
-# Zero Standing Credentials: How I Eliminated Long-Lived Secrets from a Client's Entire Deployment Pipeline
-
 **Subtitle:** Workload identity federation, OIDC, and the case against the access key.
 
 ---
