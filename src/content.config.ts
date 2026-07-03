@@ -11,6 +11,7 @@ const postSchema = ({ image }) =>
         pubDate: z.coerce.date(),
         updatedDate: z.coerce.date().optional(),
         heroImage: z.optional(image()),
+		featured: z.boolean().default(false),   // <-- add this
     });
 
 const blog = defineCollection({

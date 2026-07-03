@@ -1,7 +1,8 @@
 ---
 title: "The tagsession-vs-externalid gotcha - The Authorization Failure That Every Policy Said Was Impossible"
 description: "A deep dive into a subtle IAM trust-policy bug, and the debugging discipline that found it."
-pubDate: 'Jul 05 2026'
+pubDate: 'June 05 2026'
+featured: true
 ---
 
 **Subtitle:** A deep dive into a subtle IAM trust-policy bug, and the debugging discipline that found it.
