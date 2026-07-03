@@ -52,10 +52,10 @@ h2 {
 	font-size: 2.441em;
 }
 h3 {
-	font-size: 1.953em;
+	font-size: 1.553em;
 }
 h4 {
-	font-size: 1.563em;
+	font-size: 1.363em;
 }
 h5 {
 	font-size: 1.25em;
@@ -138,4 +138,12 @@ hr {
 	clip-path: inset(50%);
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
+}
+
+.img-float {
+    float: right;
+    width: 300px;
+    max-width: 40%;
+    margin: 1rem 1rem 0 1rem;   /* right + bottom gap so text doesn't hug the image */
+    border-radius: 8px;
 }
