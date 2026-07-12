@@ -13,7 +13,7 @@ discipline: name things carefully, be cautious, hope no one fat-fingers a config
 The other is construction: build the system so that staging *cannot* reach
 production, no matter what anyone types.
 
-For [CLIENT-TYPE], I designed the second kind. This is the philosophy and the
+For small business clients I was contracted to work with, I designed the second kind. This is the philosophy and the
 mechanics.
 
 ### The failure mode of convention
