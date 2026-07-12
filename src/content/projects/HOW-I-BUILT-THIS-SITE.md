@@ -4,7 +4,7 @@ description: 'The architecture and deployment of agyaponggyamfi.com — Astro, G
 pubDate: 'Jun 28 2026'
 ---
 
-# How I Built and Shipped This Site: Astro + GitHub Pages + Route 53
+## How I Built and Shipped This Site: Astro + GitHub Pages + Route 53
 
 Creating a runbook is one important thing i do and find need for on every problem I resolve. IT is a knowledge captrue and helps speed up the process to be done by another developer another time. 
 
@@ -21,9 +21,10 @@ This site itself is a live proof of capability—deliberately architected, versi
 By documenting my execution steps, architectural choices, and lessons learned, I am following my own standards of ensuring knowledge capture for every problem solved. 
 I also aim to provide it as a learning blueprint for other developers while demonstrating the strategic mindset and engineering rigor I contribute as a technical partner.
 
+**View the code:** [github.com/jakgyamfi/agyaponggyamfi-blog](https://github.com/jakgyamfi/agyaponggyamfi-blog)
 ---
 
-## The core architectural decision: managed hosting, on purpose
+### The core architectural decision: managed hosting, on purpose
 
 I run self-hosted infrastructure elsewhere — VMs, a private CA, containerized deploys, AWS and Azure Cloud resources. 
 I could have self-hosted this site too. I chose not to, and that choice is the most important one in
@@ -40,7 +41,7 @@ and knowing *when not to* self-host is itself an important engineering judgment.
 
 ---
 
-## The stack
+### The stack
 
 | Layer | Choice | Why |
 |---|---|---|
@@ -54,7 +55,7 @@ and knowing *when not to* self-host is itself an important engineering judgment.
 
 ---
 
-## 1. Repository: personal account, public, named for the domain
+### 1. Repository: personal account, public, named for the domain
 
 - **Repository:** I created the repo (`agyaponggyamfi-blog`) under my **personal** GitHub account, not an org,
 and made it **public.**
@@ -66,7 +67,7 @@ and made it **public.**
 
 ---
 
-## 2. Cloning the repo
+### 2. Cloning the repo
 
 ```bash
 cd ~/Cloud
@@ -76,7 +77,7 @@ git remote -v
 ```
 
 
-## 3. Scaffolding Astro into the repo root
+### 3. Scaffolding Astro into the repo root
 
 Scaffold Astro into the **current directory** with a single dot:
 
@@ -104,7 +105,7 @@ ls -a
 
 ---
 
-## 4. Local smoke test
+### 4. Local smoke test
 
 ```bash
 npm run dev   # http://localhost:4321, confirm it renders, q + Enter to stop
@@ -115,7 +116,7 @@ see §7). I keep local Node on 22 to match CI.
 
 ---
 
-## 5. Pointing Astro at the real domain
+### 5. Pointing Astro at the real domain
 
 The blog template ships `astro.config.mjs` with `site: 'https://example.com'`. I changed exactly that one
 line:
@@ -130,7 +131,7 @@ hosting; because the final home is the apex domain root, adding one would break 
 
 ---
 
-## 6. The deploy workflow — self-contained by design
+### 6. The deploy workflow — self-contained by design
 This is a basic workflow to get things published. 
 **By the time you are viewing this page, this workflow will be different with built in security** including inclusing the use of @<SHA> for version control and using dependabot to trigger pull-request for version updates. 
 
@@ -175,7 +176,7 @@ jobs:
 
 ---
 
-## 7. The build error that actually mattered
+### 7. The build error that actually mattered
 
 My first Actions run failed:
 
@@ -189,7 +190,7 @@ line in the workflow above. Push, re-run, green.
 
 ---
 
-## 8. Enabling Pages, then pushing
+### 8. Enabling Pages, then pushing
 
 I enabled Pages **before** the first push so that push would trigger a real deploy:
 
@@ -211,7 +212,7 @@ subpath — expected, because `site` points at the apex; it resolved once the do
 
 ---
 
-## 9. Attaching the domain and wiring Route 53
+### 9. Attaching the domain and wiring Route 53
 
 In **Settings → Pages → Custom domain** I entered `agyaponggyamfi.com` and saved. GitHub wrote a
 `CNAME` file into the repo and started a DNS check (pending until the records existed). I pulled
@@ -238,7 +239,7 @@ jakgyamfi.github.io
 
 ---
 
-## 10. HTTPS, then verification
+### 10. HTTPS, then verification
 
 DNS propagated within the hour. Pages showed "DNS check successful" and auto-provisioned a
 Let's Encrypt certificate. Once the cert existed I ticked **Enforce HTTPS** 
@@ -252,7 +253,7 @@ HTTPS, on a CDN, for free.
 
 ---
 
-## 11. Customizing the Build"
+### 11. Customizing the Build"
 
 A fresh deploy is a live copy of Astro's demo — "Hello, Astronaut!", a placeholder footer, fake
 posts, Astro's own social links. I replaced:
@@ -269,7 +270,7 @@ posts, Astro's own social links. I replaced:
 
 ---
 
-## The publishing loop now
+### The publishing loop now
 
 1. Add a Markdown/MDX file under `src/content/blog/`.
 2. `git add -A && git commit -m "New post: ..." && git push`
@@ -292,3 +293,6 @@ built with a clear-eyed choice about where reliability matters more than tinkeri
 | `CNAME ... not permitted at apex` | CNAME at the root domain | A records at apex; CNAME only for `www` |
 | Sitemap/RSS URLs wrong | `site:` left as `example.com` | Set it to the real domain |
 | "Enforce HTTPS" errors | Cert not provisioned yet | Wait for DNS check + cert, then tick it |
+
+
+**View the code:** [github.com/jakgyamfi/agyaponggyamfi-blog](https://github.com/jakgyamfi/agyaponggyamfi-blog)
