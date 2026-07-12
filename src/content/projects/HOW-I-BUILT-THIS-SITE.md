@@ -1,10 +1,8 @@
 ---
-title: 'How I Built This Site'
+title: ' How I Built and Shipped This Site: Astro + GitHub Pages + Route 53'
 description: 'The architecture and deployment of agyaponggyamfi.com — Astro, GitHub Pages, and Route 53 — including the decisions and the errors along the way.'
 pubDate: 'Jun 28 2026'
 ---
-
-## How I Built and Shipped This Site: Astro + GitHub Pages + Route 53
 
 Creating a runbook is one important thing i do and find need for on every problem I resolve. IT is a knowledge captrue and helps speed up the process to be done by another developer another time. 
 
@@ -19,9 +17,8 @@ Because my daily work lives within private organization repositories, this platf
 This site itself is a live proof of capability—deliberately architected, version-controlled, and CI/CD-deployed—offering prospective teams a transparent view of the engineering standards I bring to production environments.
 
 By documenting my execution steps, architectural choices, and lessons learned, I am following my own standards of ensuring knowledge capture for every problem solved. 
-I also aim to provide it as a learning blueprint for other developers while demonstrating the strategic mindset and engineering rigor I contribute as a technical partner.
+I also aim to provide it as a learning blueprint for other developers while demonstrating the strategic mindset and engineering rigor I contribute as a technical partner. **View the code:** [github.com/jakgyamfi/agyaponggyamfi-blog](https://github.com/jakgyamfi/agyaponggyamfi-blog).
 
-**View the code:** [github.com/jakgyamfi/agyaponggyamfi-blog](https://github.com/jakgyamfi/agyaponggyamfi-blog)
 ---
 
 ### The core architectural decision: managed hosting, on purpose
