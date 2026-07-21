@@ -2,6 +2,7 @@
 ---
 title: "A Chatbot Answers. An Agent Acts. -  Securing the Agentic Surface"
 description: "Agents orchestrate sub-agents, call tools, and run code on a user's behalf — their capability is their risk. How to contain an agentic frontend before it can reach beyond its lane."
+pubDate: "Jul 02 2026"
 ---
 
 **Subtitle:** The moment a surface can take actions in your environment, it stops being a content problem and becomes a blast-radius problem.

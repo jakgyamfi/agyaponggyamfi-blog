@@ -2,6 +2,7 @@
 ---
 title: "Ten Failures on the Way to One Door"
 description: "The messy middle of shipping an enforcing egress proxy: a squid host-forgery wall, a boot race, an exec-format crash, silent secret drift. The failures taught more than the design did."
+pubDate: 'Jul 10 2026'
 ---
 
 **Subtitle:** Between "the design is right" and "the control is live" were ten distinct failures — one of which killed an entire engine.

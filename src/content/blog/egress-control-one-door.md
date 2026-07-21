@@ -2,6 +2,8 @@
 ---
 title: "One Door to the Models - egress control in an AI platform:"
 description: "On a platform full of language models, the real data-loss path is outbound, and it's usually left wide open. How egress became a named, enforced, deny-by-default allowlist — and the security-review confession that got it there."
+pubDate: 'Jul 14 2026'
+featured: true
 ---
 
 **Subtitle:** A NAT gateway is not an egress control — it's an egress enabler with a logbook.
