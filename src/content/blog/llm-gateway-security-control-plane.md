@@ -2,7 +2,7 @@
 ---
 title: "The LLM Gateway as a Security Control Plane"
 description: "Plenty of 'secure' AI deployments give every container one role scoped to 'what the platform needs.' That's least-privilege in a diagram and nothing of the sort in practice. Per-service task roles, and why blast radius sets the boundary"
-pubDate: "Jul 17 2026"
+pubDate: 'Jul 17 2026'
 ---
 
 **Subtitle:** The moment two AI workloads share an identity, each can read the other's secrets.

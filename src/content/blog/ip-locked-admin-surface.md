@@ -2,6 +2,7 @@
 ---
 title: "Reaching a Private Admin UI Without Opening a Door"
 description: "Your gateway's admin console is correctly private, but a human still needs to reach it. An IP-locked, DDNS-tracked route that stays shut to everyone else — no public endpoint, no bastion dance."
+pubDate: 'Jul 04 2026'
 ---
 
 **Subtitle:**The two lazy answers — public with a password, or a bastion every time — are both wrong. 
