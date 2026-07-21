@@ -1,4 +1,3 @@
-
 ---
 title: "The Shared IAM Role That Only Looks Like Least-Privilege"
 description: "Plenty of 'secure' AI deployments give every container one role scoped to 'what the platform needs.' That's least-privilege in a diagram and nothing of the sort in practice. Per-service task roles, and why blast radius sets the boundary"

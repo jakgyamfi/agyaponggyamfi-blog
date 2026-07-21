@@ -1,3 +1,4 @@
+---
 title: ' KnowledgeForge AI - A thought should not disappear because it arrived at the wrong time'
 description: 'KnowledgeForge supports real writing and idea development today. It also provides a foundation for deeper work in container isolation, private Linux hosting, secure AI-agent orchestration, MCP server governance, observability, and cloud deployment controls.'
 pubDate: 'Jul 10 2026'

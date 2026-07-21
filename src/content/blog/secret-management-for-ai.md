@@ -1,4 +1,3 @@
-
 ---
 title: "Keep Secrets Out of State — and Out of Your Apps"
 description: "An AI gateway multiplies secret relationships — provider keys, DB creds, signing material. Three rules that keep values out of Terraform state, out of consumer services, and out of reach of a compromised database."
