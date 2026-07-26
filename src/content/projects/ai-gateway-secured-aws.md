@@ -4,12 +4,12 @@ description: 'A production-informed, security-first AWS reference for running Li
 pubDate: 'Jun 28 2026'
 ---
 
-> I built **ai-gateway-secured-aws**, a scrubbed public version of production-informed AI platform work. It shows how to make an LLM gateway a security control plane rather than a shared provider-key store: LiteLLM runs privately, consumer applications use scoped virtual keys, provider keys stay at the gateway, and the infrastructure treats egress, runtime identity, and secret handling as first-class boundaries.
->
-> The repository includes Terraform for LiteLLM, Open WebUI, LibreChat, and a deliberately narrow read-only MCP fetch service. The security story is concrete: per-service IAM roles, private networking, an SNI-allowlist egress proxy, runtime secrets that never enter Terraform state, and a resolved-IP SSRF guard for the tool service. It also documents operational trade-offs—single-instance egress recovery, encrypted database-backed provider configuration, protected two-hop OIDC deployment, and cost controls for idle environments.
->
-> The public repository contains no client identifiers, live credentials, account IDs, or deployment targets. It is a fork-and-deploy reference; claims about a particular deployment should always be supported by its reviewed plan and operating evidence.
->
+I built **ai-gateway-secured-aws**, a scrubbed public version of production-informed AI platform work. It shows how to make an LLM gateway a security control plane rather than a shared provider-key store: LiteLLM runs privately, consumer applications use scoped virtual keys, provider keys stay at the gateway, and the infrastructure treats egress, runtime identity, and secret handling as first-class boundaries.
+
+The repository includes Terraform for LiteLLM, Open WebUI, LibreChat, and a deliberately narrow read-only MCP fetch service. The security story is concrete: per-service IAM roles, private networking, an SNI-allowlist egress proxy, runtime secrets that never enter Terraform state, and a resolved-IP SSRF guard for the tool service. It also documents operational trade-offs—single-instance egress recovery, encrypted database-backed provider configuration, protected two-hop OIDC deployment, and cost controls for idle environments.
+
+The public repository contains no client identifiers, live credentials, account IDs, or deployment targets. It is a fork-and-deploy reference; claims about a particular deployment should always be supported by its reviewed plan and operating evidence.
+
 ## Why this exists
 Most "AI on AWS" examples stop at "call the model." The real problem starts after that: once several apps and agents need model access, how do you stop provider API keys from scattering, control and audit egress, budget usage, and do it without enterprise pricing?
 
