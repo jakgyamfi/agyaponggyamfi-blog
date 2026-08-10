@@ -6,8 +6,8 @@ understanding doesn't."
 pubDate: 'Aug 10 2026'
 ---
 
-**Subtitle:**Treat every AI output as a prompt to ask "why," and treat every correction you make as a thing
-to actually understand. 
+**Treat every AI output as a prompt to ask "why," and treat every correction you make as a thing
+to actually understand.** 
 
 ---
 
