@@ -5,7 +5,7 @@ description: "Your gateway's admin console is correctly private, but a human sti
 pubDate: 'Jul 04 2026'
 ---
 
-**Subtitle:**The two lazy answers — public with a password, or a bastion every time — are both wrong. 
+**Subtitle:** The two lazy answers — public with a password, or a bastion every time — are both wrong. 
 
 ---
 
